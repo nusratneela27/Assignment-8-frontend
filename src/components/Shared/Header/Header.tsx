@@ -8,10 +8,10 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Link,
   Button,
 } from "@nextui-org/react";
 import Logo from "./Logo";
+import Link from "next/link";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -26,26 +26,27 @@ const Header = () => {
   ];
 
   return (
-    <Navbar shouldHideOnScroll onMenuOpenChange={setIsMenuOpen}>
+    <Navbar shouldHideOnScroll onMenuOpenChange={setIsMenuOpen} maxWidth="2xl">
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Logo></Logo>
-          <p className="font-bold text-inherit">Clothing Icon</p>
+          <Link href="/">
+            <Logo />
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem isActive>
+        <NavbarItem>
           <Link color="foreground" href="#">
             Home
           </Link>
         </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
+        <NavbarItem>
+          <Link color="foreground" href="#">
             Categories
           </Link>
         </NavbarItem>
@@ -82,7 +83,7 @@ const Header = () => {
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link color={"foreground"} className="w-full" href="#" size="lg">
+            <Link color={"foreground"} className="w-full" href="#">
               {item}
             </Link>
           </NavbarMenuItem>
