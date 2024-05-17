@@ -21,7 +21,7 @@ const FooterUp = () => {
     <div className="h-28 bg-gray-200 flex justify-center items-center">
       <div className="flex justify-between items-center mx-auto container">
         {images.map((image, index) => (
-          <div key={index}>
+          <div key={index} className="p-3 md:p-0">
             <Image alt={image.alt} src={image.src} width={80} height={80} />
           </div>
         ))}

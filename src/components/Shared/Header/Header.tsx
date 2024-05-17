@@ -74,7 +74,11 @@ const Header = () => {
 
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={Link} color="primary" href="login" variant="flat">
+          <Button
+            as={Link}
+            href="login"
+            className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+          >
             Login
           </Button>
         </NavbarItem>
