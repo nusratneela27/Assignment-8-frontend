@@ -41,7 +41,7 @@ const Header = () => {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/">
             Home
           </Link>
         </NavbarItem>
@@ -51,12 +51,12 @@ const Header = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="products">
             Products
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="flash-sale">
             Flash Sale
           </Link>
         </NavbarItem>
@@ -87,7 +87,7 @@ const Header = () => {
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link color={"foreground"} className="w-full" href="#">
+            <Link color={"foreground"} className="w-full" href="/">
               {item}
             </Link>
           </NavbarMenuItem>
