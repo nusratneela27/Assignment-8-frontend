@@ -2,6 +2,7 @@ import Banner from "@/components/UI/HomePage/Banner/Banner";
 import FlashSale from "@/components/UI/HomePage/FlashSale/FlashSale";
 import Contain from "@/components/Shared/Container/Contain";
 import Category from "@/components/UI/HomePage/Category/Category";
+import PopularProducts from "@/components/UI/HomePage/PopularProducts/PopularProducts";
 const page = () => {
   return (
     <>
@@ -9,6 +10,7 @@ const page = () => {
       <Contain>
         <FlashSale></FlashSale>
         <Category></Category>
+        <PopularProducts></PopularProducts>
       </Contain>
     </>
   );
