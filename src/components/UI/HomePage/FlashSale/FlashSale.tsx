@@ -1,36 +1,19 @@
 import React from "react";
-import { LuPlusCircle } from "react-icons/lu";
 import { Button } from "@nextui-org/react";
-import { Card } from "@nextui-org/react";
 import img1 from "@/assets/flashSale/img1.jpeg";
 import img2 from "@/assets/flashSale/img2.jpeg";
 import img3 from "@/assets/flashSale/img3.jpeg";
 import img4 from "@/assets/flashSale/img4.jpg";
-import Image from "next/image";
 import Link from "next/link";
+import FlashSaleCard from "../../Cards/FlashSaleCard";
+import { SaleItem } from "@/types";
 
 const FlashSale = () => {
-  const list = [
-    {
-      title: "Boho Chic Dress",
-      img: img1,
-      price: "$50.50",
-    },
-    {
-      title: "Casual Midi Dress ",
-      img: img2,
-      price: "$300.00",
-    },
-    {
-      title: "Fit and Flare Dress",
-      img: img3,
-      price: "$100.00",
-    },
-    {
-      title: "Formal Dress",
-      img: img4,
-      price: "$195.30",
-    },
+  const SaleItems = [
+    { id: "1", title: "Boho Chic Dress", img: img1, price: "$50.50" },
+    { id: "2", title: "Casual Midi Dress ", img: img2, price: "$300.00" },
+    { id: "3", title: "Fit and Flare Dress", img: img3, price: "$100.00" },
+    { id: "4", title: "Formal Dress", img: img4, price: "$195.30" },
   ];
 
   return (
@@ -45,23 +28,8 @@ const FlashSale = () => {
         </Button>
       </div>
       <div className="gap-8 grid grid-cols-2 sm:grid-cols-4">
-        {list.map((item, index) => (
-          <div>
-            <Card shadow="md" key={index}>
-              <Image
-                alt={item.title}
-                src={item.img}
-                className="w-full h-[500px] object-cover"
-              />
-            </Card>
-            <div>
-              <h1 className="font-bold text-lg mt-4">{item.title}</h1>
-              <div className="flex justify-between items-center">
-                <p className="text-default-500">{item.price}</p>
-                <LuPlusCircle />
-              </div>
-            </div>
-          </div>
+        {SaleItems.map((saleItem: SaleItem) => (
+          <FlashSaleCard key={saleItem.id} saleItem={saleItem}></FlashSaleCard>
         ))}
       </div>
     </div>
