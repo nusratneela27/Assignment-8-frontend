@@ -47,7 +47,7 @@ const Category = () => {
   return (
     <div className="my-16 space-y-10">
       <div className="text-center">
-        <h1 className="text-3xl font-bold">Top Category</h1>
+        <h1 className="text-3xl font-bold">Top Ca tegory</h1>
         <p className="text-gray-500 mt-3 w-2/4 mx-auto">
           Explore our newest collection of stylish and trendy outfits perfect
           for every occasion. Stay ahead in fashion with our exclusive designs

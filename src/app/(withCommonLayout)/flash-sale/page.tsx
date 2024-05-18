@@ -1,6 +1,8 @@
 import Contain from "@/components/Shared/Container/Contain";
 import ProductCard from "@/components/UI/Cards/ProductCard";
 import { Products } from "@/types";
+import { Button } from "@nextui-org/react";
+import Link from "next/link";
 import React from "react";
 
 export const metadata = {
@@ -29,6 +31,17 @@ const FlashSale = async () => {
           {products.slice(0, 12).map((product: Products) => (
             <ProductCard key={product._id} product={product}></ProductCard>
           ))}
+        </div>
+        <div className="flex flex-col justify-center items-center space-y-3 pt-10">
+          <p className="font-bold">Showing 1-12 of 24 Item(s)</p>
+          <div>
+            <Button
+              radius="full"
+              className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg px-10"
+            >
+              <Link href="products">Load More</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </Contain>

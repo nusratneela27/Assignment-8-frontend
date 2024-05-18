@@ -1,6 +1,6 @@
 import React from "react";
 
-const CommonLayout = ({
+const DashboardLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -8,4 +8,4 @@ const CommonLayout = ({
   return <div>{children}</div>;
 };
 
-export default CommonLayout;
+export default DashboardLayout;

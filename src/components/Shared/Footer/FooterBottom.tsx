@@ -1,6 +1,6 @@
 const FooterBottom = () => {
   return (
-    <div className=" bg-gray-600">
+    <div className=" bg-amber-950">
       <div className="flex flex-col gap-4 md:gap-0 md:flex-row justify-between text-white p-10 md:py-20 mx-auto container">
         <div className="space-y-2">
           <h1 className="font-thin text-gray-100 pb-3">TRENDING PRODUCTS</h1>

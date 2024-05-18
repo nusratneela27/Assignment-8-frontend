@@ -1,3 +1,5 @@
+import { UserSidebarWrapper } from "../components/DashboardSidebar/UserSidebar";
+
 export const metadata = {
   title: "Dashboard",
 };
@@ -5,7 +7,7 @@ export const metadata = {
 const DashBoardHomePage = () => {
   return (
     <div>
-      <h1>welcome to dashboard</h1>
+      <UserSidebarWrapper></UserSidebarWrapper>
     </div>
   );
 };
