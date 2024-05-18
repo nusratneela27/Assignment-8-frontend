@@ -2,6 +2,10 @@ import Contain from "@/components/Shared/Container/Contain";
 import SideBar from "@/components/SideBar/SideBar";
 import React from "react";
 
+export const metadata = {
+  title: "Products",
+};
+
 const AllProducts = () => {
   return (
     <Contain>

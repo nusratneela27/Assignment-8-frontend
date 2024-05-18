@@ -2,6 +2,9 @@ import Contain from "@/components/Shared/Container/Contain";
 import { MdOutlineLocalShipping } from "react-icons/md";
 import { FaBox } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa";
+export const metadata = {
+  title: "Product details",
+};
 
 const ProductDetails = () => {
   return (

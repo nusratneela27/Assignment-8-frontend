@@ -3,6 +3,11 @@ import FlashSale from "@/components/UI/HomePage/FlashSale/FlashSale";
 import Contain from "@/components/Shared/Container/Contain";
 import Category from "@/components/UI/HomePage/Category/Category";
 import PopularProducts from "@/components/UI/HomePage/PopularProducts/PopularProducts";
+
+export const metadata = {
+  title: "Home Page",
+};
+
 const page = () => {
   return (
     <>

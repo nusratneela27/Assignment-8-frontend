@@ -1,4 +1,6 @@
-import React from "react";
+export const metadata = {
+  title: "Page Not Found",
+};
 
 const NotFoundPage = () => {
   return (
