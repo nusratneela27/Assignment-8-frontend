@@ -46,7 +46,7 @@ export const UserSidebarWrapper = () => {
             />
             <SidebarMenu title="Main Menu">
               <SidebarItem
-                isActive={pathname === "/dashboard/products"}
+                isActive={pathname === "/dashboard/all-products"}
                 title="All Products"
                 icon={<FaBox />}
               />
