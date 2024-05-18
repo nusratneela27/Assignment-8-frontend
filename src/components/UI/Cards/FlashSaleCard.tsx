@@ -8,11 +8,11 @@ const FlashSaleCard = ({ product }: { product: Products }) => {
   return (
     <div>
       <Card shadow="md">
-        {/* <Image
+        <Image
           alt={product.title}
           src={product.image}
           className="w-full h-[500px] object-cover"
-        /> */}
+        />
       </Card>
       <div>
         <h1 className="font-bold text-lg mt-4">{product.title}</h1>

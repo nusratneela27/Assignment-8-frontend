@@ -2,9 +2,6 @@ import Contain from "@/components/Shared/Container/Contain";
 import SideBar from "@/components/SideBar/SideBar";
 import ProductCard from "@/components/UI/Cards/ProductCard";
 import { Products } from "@/types";
-import { Card } from "@nextui-org/react";
-import Image from "next/image";
-import React from "react";
 
 export const metadata = {
   title: "Products",
@@ -28,7 +25,7 @@ const AllProducts = async () => {
               perfect for every occasion. Stay ahead in fashion with our
               exclusive designs and premium quality clothing.
             </p>
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
               {products.slice(0, 12).map((product: Products) => (
                 <ProductCard key={product._id} product={product}></ProductCard>
               ))}

@@ -21,6 +21,7 @@ const PopularProducts = async () => {
   //   { id: "7", title: "Fit and Flare Dress", img: img3, price: "$100.00" },
   //   { id: "8", title: "Formal Dress", img: img4, price: "$195.30" },
   // ];
+
   const res = await fetch("http://localhost:5000/products");
   const products = await res.json();
 
