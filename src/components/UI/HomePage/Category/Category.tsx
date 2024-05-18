@@ -83,7 +83,7 @@ const Category = () => {
           radius="full"
           className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg px-10"
         >
-          <Link href="flash-sale">View All</Link>
+          <Link href="products">View All</Link>
         </Button>
       </div>
     </div>

@@ -8,9 +8,13 @@ export const metadata = {
 };
 
 const AllProducts = async () => {
-  const res = await fetch("http://localhost:5000/products");
+  const res = await fetch("http://localhost:5000/products", {
+    next: {
+      revalidate: 2,
+    },
+  });
   const products = await res.json();
-  // console.log(data);
+  // console.log(products);
 
   return (
     <Contain>

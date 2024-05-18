@@ -1,12 +1,3 @@
-import { StaticImageData } from "next/image";
-
-export interface SaleItem {
-    id: string;
-    title: string;
-    img: StaticImageData;
-    price: string;
-}
-
 export interface Products {
     _id: string;
     category: string,
@@ -17,3 +8,15 @@ export interface Products {
     flash_sale: string;
     ratings: number;
 }
+
+
+// =========== for static image =============
+
+// import { StaticImageData } from "next/image";
+
+// export interface SaleItem {
+//     id: string;
+//     title: string;
+//     img: StaticImageData;
+//     price: string;
+// }

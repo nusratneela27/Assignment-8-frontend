@@ -7,18 +7,13 @@ const ProductCard = ({ product }: { product: Products }) => {
   return (
     <div>
       <Card shadow="md">
-        <img
+        <Image
           alt={product.title}
           src={product.image}
+          width={500}
+          height={500}
           className="w-full h-[500px] object-cover"
         />
-        {/* <Image
-          alt={product.title}
-          src={product.image}
-          width={0}
-          height={0}
-          className="w-full h-[500px] object-cover"
-        /> */}
       </Card>
       <div>
         <h1 className="font-bold text-lg mt-4">{product.title}</h1>
