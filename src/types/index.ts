@@ -6,3 +6,14 @@ export interface SaleItem {
     img: StaticImageData;
     price: string;
 }
+
+export interface Products {
+    _id: string;
+    category: string,
+    description: string;
+    title: string;
+    image: string;
+    price: number;
+    flash_sale: string;
+    ratings: number;
+}
