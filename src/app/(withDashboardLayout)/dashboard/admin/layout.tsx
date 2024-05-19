@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import UserLayout from "./layout/userLayout";
+import AdminLayout from "./layout/adminLayout";
 
 export const metadata: Metadata = {
-  title: "User Dashboard",
+  title: "Admin Dashboard",
 };
 
-export default function DashboardUserLayout({
+export default function DashboardAdminLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <div>
-      <UserLayout>{children}</UserLayout>
+      <AdminLayout>{children}</AdminLayout>
     </div>
   );
 }
