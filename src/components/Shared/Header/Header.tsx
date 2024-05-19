@@ -66,8 +66,8 @@ const Header = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Contact Us
+          <Link color="foreground" href="women-wear">
+            women wear
           </Link>
         </NavbarItem>
         <NavbarItem>

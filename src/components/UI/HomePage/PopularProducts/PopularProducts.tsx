@@ -24,12 +24,12 @@ const PopularProducts = async () => {
           radius="full"
           className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
         >
-          <Link href="products">View All</Link>
+          <Link href="women-wear">View All</Link>
         </Button>
       </div>
 
       <div className="gap-8 grid grid-cols-2 sm:grid-cols-4">
-        {products.slice(0, 8).map((product: Products) => (
+        {products.slice(8, 16).map((product: Products) => (
           <ProductCard key={product._id} product={product}></ProductCard>
         ))}
       </div>

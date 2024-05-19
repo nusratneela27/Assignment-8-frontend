@@ -20,7 +20,7 @@ const ProductCard = ({ product }: { product: Products }) => {
         <div className="flex justify-between items-center">
           <p className="text-default-500">{product.price}</p>
           <Button size="sm" color="secondary" variant="shadow">
-            <Link href={`/products/${product._id}`}>Details</Link>
+            <Link href={`/women-wear/${product._id}`}>Details</Link>
           </Button>
         </div>
       </div>
