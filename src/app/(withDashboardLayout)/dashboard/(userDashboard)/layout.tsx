@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import UserLayout from "./layout/userLayout";
 
-export default function userLayout({
+export const metadata: Metadata = {
+  title: "User Dashboard",
+};
+
+export default function DashboardMainLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

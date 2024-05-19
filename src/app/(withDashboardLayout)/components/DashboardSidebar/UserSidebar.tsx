@@ -49,6 +49,7 @@ export const UserSidebarWrapper = () => {
                 isActive={pathname === "/dashboard/all-products"}
                 title="All Products"
                 icon={<FaBox />}
+                href="/dashboard/all-products"
               />
               <SidebarItem
                 isActive={pathname === "/dashboard/payments"}

@@ -1,6 +1,5 @@
 "use client";
 import { Input, Navbar, NavbarContent } from "@nextui-org/react";
-// import { ChevronLeft, Menu, SearchCheck } from "lucide-react";
 import React from "react";
 import { LuSearchCheck } from "react-icons/lu";
 // import { useSidebarContext } from "../../layout/layout-context";
