@@ -13,15 +13,11 @@ import { Products } from "@/types";
 import Image from "next/image";
 
 const AllProductsTable = async () => {
-  const res = await fetch("http://localhost:5000/products", {
-    next: {
-      revalidate: 2,
-    },
-  });
+  const res = await fetch("http://localhost:5000/products");
   const products = await res.json();
 
   return (
-    <Table className="m-5 md:my-10 pe-5 md:pe-40">
+    <Table className="m-5 md:my-10 pe-5 md:pe-48">
       <TableHeader>
         <TableColumn>Items</TableColumn>
         <TableColumn>Category</TableColumn>

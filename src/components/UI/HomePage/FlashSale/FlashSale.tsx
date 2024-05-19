@@ -12,6 +12,10 @@ const FlashSale = async () => {
   });
   const products = await res.json();
 
+  const flashSaleProducts = products.filter(
+    (product: Products) => product.flash_sale
+  );
+
   return (
     <div className="py-16 space-y-6">
       <div className="flex justify-between items-center">
@@ -24,7 +28,7 @@ const FlashSale = async () => {
         </Button>
       </div>
       <div className="gap-8 grid grid-cols-2 sm:grid-cols-4">
-        {products.slice(0, 4).map((product: Products) => (
+        {flashSaleProducts.slice(0, 4).map((product: Products) => (
           <ProductCard key={product._id} product={product}></ProductCard>
         ))}
       </div>
