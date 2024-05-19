@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import {
   Table,
   TableHeader,
@@ -27,7 +26,7 @@ const AllProductsTable = async () => {
       </TableHeader>
       <TableBody>
         {products.map((product: Products) => (
-          <TableRow key={product._id}>
+          <TableRow key={product._id} className="border-b-2">
             <TableCell>
               <div className="flex items-center gap-3">
                 <Image
@@ -41,16 +40,24 @@ const AllProductsTable = async () => {
               </div>
             </TableCell>
             <TableCell>
-              <p>{product.ratings}</p>
-            </TableCell>
-            <TableCell>
               <p>{product.category}</p>
             </TableCell>
             <TableCell>
               <p>{product.price}</p>
             </TableCell>
             <TableCell>
-              <p>{product.flash_sale}</p>
+              <p>{product.ratings}</p>
+            </TableCell>
+            <TableCell className="w-24">
+              <p
+                className={
+                  product.flash_sale
+                    ? "bg-red-200 font-bold rounded text-center px-3 py-2"
+                    : ""
+                }
+              >
+                {product.flash_sale}
+              </p>
             </TableCell>
           </TableRow>
         ))}

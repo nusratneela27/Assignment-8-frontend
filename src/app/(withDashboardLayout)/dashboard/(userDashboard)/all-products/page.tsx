@@ -6,7 +6,7 @@ const AllProducts = () => {
   return (
     <Contain>
       <h1 className="text-3xl font-bold mt-10">All Products</h1>
-      {/* <AllProductsTable></AllProductsTable> */}
+      <AllProductsTable></AllProductsTable>
     </Contain>
   );
 };

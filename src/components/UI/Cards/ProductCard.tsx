@@ -1,7 +1,7 @@
 import { Products } from "@/types";
-import { Card } from "@nextui-org/react";
+import { Button, Card } from "@nextui-org/react";
 import Image from "next/image";
-import { LuPlusCircle } from "react-icons/lu";
+import Link from "next/link";
 
 const ProductCard = ({ product }: { product: Products }) => {
   return (
@@ -19,7 +19,9 @@ const ProductCard = ({ product }: { product: Products }) => {
         <h1 className="font-bold text-lg mt-4">{product.title}</h1>
         <div className="flex justify-between items-center">
           <p className="text-default-500">{product.price}</p>
-          <LuPlusCircle />
+          <Button size="sm" color="secondary" variant="shadow">
+            <Link href={`/products/${product._id}`}>Details</Link>
+          </Button>
         </div>
       </div>
     </div>

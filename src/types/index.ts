@@ -9,6 +9,13 @@ export interface Products {
     ratings: number;
 }
 
+export interface ProductId {
+    params: {
+        productId: string;
+    };
+}
+
+
 
 // =========== for static image =============
 

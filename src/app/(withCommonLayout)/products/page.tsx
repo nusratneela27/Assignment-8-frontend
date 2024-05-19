@@ -23,7 +23,7 @@ const AllProducts = async () => {
       <div className="my-16 space-y-3">
         <div className="flex">
           <SideBar></SideBar>
-          <div className="flex-1 ml-36">
+          <div className="flex-1 ml-36 space-y-3">
             <h1 className="text-3xl font-bold">Our Collection Of Products</h1>
             <p className="font-bold">Showing 1-12 of 24 Item(s)</p>
             <p className="text-gray-500 mt-3 mb-7">

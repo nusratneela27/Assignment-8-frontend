@@ -70,6 +70,11 @@ const Header = () => {
             Contact Us
           </Link>
         </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="dashboard">
+            Dashboard
+          </Link>
+        </NavbarItem>
       </NavbarContent>
 
       <NavbarContent justify="end">
