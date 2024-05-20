@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -12,16 +12,24 @@ import {
 } from "@nextui-org/react";
 import Logo from "./Logo";
 import Link from "next/link";
+import { MenuItem } from "@/types";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const menuItems = [
-    "Home",
-    "Categories",
-    "Women Products",
-    "Flash Sale",
-    "Dashboard",
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [activeItem, setActiveItem] = useState<string>("Home");
+
+  const menuItems: MenuItem[] = [
+    { label: "Home", href: "/" },
+    { label: "Categories", href: "/categories" },
+    { label: "Women Products", href: "/women-wear" },
+    { label: "Flash Sale", href: "/flash-sale" },
+    { label: "Dashboard", href: "/dashboard" },
   ];
+
+  const handleMenuItemClick = (label: string) => {
+    setActiveItem(label);
+    setIsMenuOpen(false);
+  };
 
   return (
     <Navbar shouldHideOnScroll onMenuOpenChange={setIsMenuOpen} maxWidth="2xl">
@@ -38,38 +46,29 @@ const Header = () => {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="/">
-            Home
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="/categories">
-            Categories
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="/women-wear">
-            Women Products
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="/flash-sale">
-            Flash Sale
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="/dashboard">
-            Dashboard
-          </Link>
-        </NavbarItem>
+        {menuItems.map((item, index) => (
+          <NavbarItem key={`${item.label}-${index}`}>
+            <Link href={item.href}>
+              <span
+                className={`${
+                  item.label === activeItem
+                    ? "bg-amber-300 px-2 py-1 rounded-lg shadow-md"
+                    : ""
+                } hover:text-amber-700 cursor-pointer`}
+                onClick={() => handleMenuItemClick(item.label)}
+              >
+                {item.label}
+              </span>
+            </Link>
+          </NavbarItem>
+        ))}
       </NavbarContent>
 
       <NavbarContent justify="end">
         <NavbarItem>
           <Button
             as={Link}
-            href="login"
+            href="/login"
             className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
           >
             Login
@@ -79,9 +78,17 @@ const Header = () => {
 
       <NavbarMenu>
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link color={"foreground"} className="w-full" href="/">
-              {item}
+          <NavbarMenuItem key={`${item.label}-${index}`}>
+            <Link href={item.href}>
+              <span
+                style={{
+                  color: item.label === activeItem ? "blue" : "black",
+                  cursor: "pointer",
+                }}
+                onClick={() => handleMenuItemClick(item.label)}
+              >
+                {item.label}
+              </span>
             </Link>
           </NavbarMenuItem>
         ))}

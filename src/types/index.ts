@@ -8,11 +8,16 @@ export interface Products {
     flash_sale: string;
     ratings: number;
 }
-
+// params
 export interface ProductId {
     params: {
         productId: string;
     };
+}
+// Header
+export interface MenuItem {
+    label: string;
+    href: string;
 }
 
 // =========== for static image =============

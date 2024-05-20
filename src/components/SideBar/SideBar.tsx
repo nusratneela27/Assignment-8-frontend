@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Checkbox } from "@nextui-org/react";
 import {
   Option,
@@ -15,7 +15,7 @@ import { useRouter } from "next/navigation";
 const SideBar = () => {
   const params = useSearchParams();
   const router = useRouter();
-  // const category = params.get("category");
+  const selectedCategory = params.get("category");
 
   const handleClick = (option: Option) => {
     const currentQuery = { ...queryString.parse(params.toString()) };
@@ -30,6 +30,7 @@ const SideBar = () => {
     );
     router.push(url);
   };
+
   return (
     <div className="flex flex-col w-64 px-2 py-4 space-y-5">
       <div className="border rounded-lg shadow-md p-5">
@@ -50,14 +51,18 @@ const SideBar = () => {
             <span className="ps-5">Categories</span>
           </h1>
           {categoryOptions.map((option: Option) => (
-            <Checkbox
+            <p
               key={option.value}
-              // checked={category === option.label}
               onClick={() => handleClick(option)}
               color="secondary"
+              className={`p-3 rounded cursor-pointer ${
+                option.value === selectedCategory
+                  ? "bg-gray-200"
+                  : "hover:bg-gray-100"
+              }`}
             >
               {option.label}
-            </Checkbox>
+            </p>
           ))}
         </div>
       </div>

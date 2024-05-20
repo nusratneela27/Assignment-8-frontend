@@ -5,8 +5,10 @@ export type Option = {
 };
 
 export const priceRangeOptions: Option[] = [
-    { label: "$20.00 - $ 50.00", value: "$.200 - $ 50.00" },
+    { label: "$10.00 - $ 50.00", value: "$10.00 - $ 50.00" },
     { label: "$50.00 - $ 100.00", value: "$50.00 - $ 100.00" },
+    { label: "$100.00 - $ 150.00", value: "$100.00 - $ 150.00" },
+    { label: "$150.00 - $ 200.00", value: "$150.00 - $ 200.00" },
 ];
 
 export const categoryOptions: Option[] = [
