@@ -2,48 +2,45 @@
 
 import React from "react";
 import { Button, Card, CardFooter } from "@nextui-org/react";
-import top from "@/assets/TopCategory/top.jpeg";
-import bottom from "@/assets/TopCategory/bottom.jpeg";
-import gown from "@/assets/TopCategory/gown.jpeg";
-import casual from "@/assets/TopCategory/casual.jpg";
-import formal from "@/assets/TopCategory/formal.jpg";
-import outerwear from "@/assets/TopCategory/outerwear.jpeg";
 import Image from "next/image";
 import Link from "next/link";
+import { Products } from "@/types";
+import { useRouter } from "next/navigation";
 
-const Category = () => {
-  const list = [
-    {
-      title: "Tops",
-      img: top,
-      category: "Tops",
+const Category = async () => {
+  const router = useRouter();
+
+  const res = await fetch("http://localhost:5000/women-wear", {
+    next: {
+      revalidate: 2,
     },
-    {
-      title: "Bottoms",
-      img: bottom,
-      category: "Bottoms",
-    },
-    {
-      title: "Gowns",
-      img: gown,
-      category: "Gowns",
-    },
-    {
-      title: "Casual",
-      img: casual,
-      category: "Casual",
-    },
-    {
-      title: "Formal",
-      img: formal,
-      category: "Formal",
-    },
-    {
-      title: "Outerwear",
-      img: outerwear,
-      category: "Outerwear",
-    },
+  });
+  const products: Products[] = await res.json();
+
+  const allowedCategories = [
+    "Tops",
+    "Bottoms",
+    "Casual",
+    "Formal",
+    "Outerwear",
+    "Gowns",
   ];
+
+  const filteredProducts = products.filter((product: Products) =>
+    allowedCategories.includes(product.category.trim())
+  );
+
+  const displayedProducts = filteredProducts.reduce((acc, product) => {
+    if (!acc.some((p) => p.category === product.category)) {
+      acc.push(product);
+    }
+    return acc;
+  }, [] as Products[]);
+
+  const handleProductClick = (category: string) => {
+    router.push(`/women-wear?category=${encodeURIComponent(category)}`);
+  };
+
   return (
     <div className="my-16 space-y-10">
       <div className="text-center">
@@ -55,24 +52,24 @@ const Category = () => {
         </p>
       </div>
       <div className="gap-7 grid grid-cols-2 sm:grid-cols-3">
-        {list.map((item, index) => (
+        {displayedProducts.map((product: Products) => (
           <Card
             shadow="sm"
-            key={index}
+            key={product._id}
             isFooterBlurred
             isPressable
-            onPress={() => console.log("item pressed")}
+            onPress={() => handleProductClick(product.category)}
           >
             <Image
-              alt={item.title}
-              src={item.img}
-              height={0}
-              width={0}
+              alt={product.title}
+              src={product.image}
+              height={350}
+              width={350}
               className="w-full h-[350px] object-cover"
             />
             <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
               <div>
-                <p className="text-black font-bold">{item.category}</p>
+                <p className="text-black font-bold">{product.category}</p>
               </div>
             </CardFooter>
           </Card>
@@ -83,7 +80,7 @@ const Category = () => {
           radius="full"
           className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg px-10"
         >
-          <Link href="women-wear">View All</Link>
+          <Link href="categories">View All</Link>
         </Button>
       </div>
     </div>
@@ -91,6 +88,103 @@ const Category = () => {
 };
 
 export default Category;
+
+// ===========================default show image========================================
+
+// "use client";
+
+// import React from "react";
+// import { Button, Card, CardFooter } from "@nextui-org/react";
+// import top from "@/assets/TopCategory/top.jpeg";
+// import bottom from "@/assets/TopCategory/bottom.jpeg";
+// import gown from "@/assets/TopCategory/gown.jpeg";
+// import casual from "@/assets/TopCategory/casual.jpg";
+// import formal from "@/assets/TopCategory/formal.jpg";
+// import outerwear from "@/assets/TopCategory/outerwear.jpeg";
+// import Image from "next/image";
+// import Link from "next/link";
+
+// const Category = () => {
+//   const list = [
+//     {
+//       title: "Tops",
+//       img: top,
+//       category: "Tops",
+//     },
+//     {
+//       title: "Bottoms",
+//       img: bottom,
+//       category: "Bottoms",
+//     },
+//     {
+//       title: "Gowns",
+//       img: gown,
+//       category: "Gowns",
+//     },
+//     {
+//       title: "Casual",
+//       img: casual,
+//       category: "Casual",
+//     },
+//     {
+//       title: "Formal",
+//       img: formal,
+//       category: "Formal",
+//     },
+//     {
+//       title: "Outerwear",
+//       img: outerwear,
+//       category: "Outerwear",
+//     },
+//   ];
+
+//   return (
+//     <div className="my-16 space-y-10">
+//       <div className="text-center">
+//         <h1 className="text-3xl font-bold">Top Category</h1>
+//         <p className="text-gray-500 mt-3 w-2/4 mx-auto">
+//           Explore our newest collection of stylish and trendy outfits perfect
+//           for every occasion. Stay ahead in fashion with our exclusive designs
+//           and premium quality clothing.
+//         </p>
+//       </div>
+//       <div className="gap-7 grid grid-cols-2 sm:grid-cols-3">
+//         {list.map((item, index) => (
+//           <Card
+//             shadow="sm"
+//             key={index}
+//             isFooterBlurred
+//             isPressable
+//             onPress={() => console.log("item pressed")}
+//           >
+//             <Image
+//               alt={item.title}
+//               src={item.img}
+//               height={0}
+//               width={0}
+//               className="w-full h-[350px] object-cover"
+//             />
+//             <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
+//               <div>
+//                 <p className="text-black font-bold">{item.category}</p>
+//               </div>
+//             </CardFooter>
+//           </Card>
+//         ))}
+//       </div>
+//       <div className="flex justify-center">
+//         <Button
+//           radius="full"
+//           className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg px-10"
+//         >
+//           <Link href="categories">View All</Link>
+//         </Button>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Category;
 
 // ================================ grid system ================================================
 

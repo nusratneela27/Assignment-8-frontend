@@ -44,7 +44,7 @@ const Header = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/">
+          <Link color="foreground" href="/categories">
             Categories
           </Link>
         </NavbarItem>
