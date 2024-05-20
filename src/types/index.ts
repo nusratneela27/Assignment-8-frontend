@@ -15,8 +15,6 @@ export interface ProductId {
     };
 }
 
-
-
 // =========== for static image =============
 
 // import { StaticImageData } from "next/image";

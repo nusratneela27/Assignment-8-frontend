@@ -18,10 +18,8 @@ const Header = () => {
   const menuItems = [
     "Home",
     "Categories",
-    "Products",
+    "Women Products",
     "Flash Sale",
-    "About Us",
-    "Contact Us",
     "Dashboard",
   ];
 
@@ -46,32 +44,22 @@ const Header = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/">
             Categories
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="products">
-            Products
+          <Link color="foreground" href="/women-wear">
+            Women Products
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="flash-sale">
+          <Link color="foreground" href="/flash-sale">
             Flash Sale
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            About Us
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="women-wear">
-            women wear
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="dashboard">
+          <Link color="foreground" href="/dashboard">
             Dashboard
           </Link>
         </NavbarItem>

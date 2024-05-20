@@ -5,7 +5,11 @@ import { Products } from "@/types";
 import ProductCard from "../../Cards/ProductCard";
 
 const PopularProducts = async () => {
-  const res = await fetch("http://localhost:5000/products");
+  const res = await fetch("http://localhost:5000/women-wear", {
+    next: {
+      revalidate: 2,
+    },
+  });
   const products = await res.json();
 
   return (

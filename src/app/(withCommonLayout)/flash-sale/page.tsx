@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 const FlashSale = async () => {
-  const res = await fetch("http://localhost:5000/products", {
+  const res = await fetch("http://localhost:5000/women-wear", {
     next: {
       revalidate: 2,
     },
