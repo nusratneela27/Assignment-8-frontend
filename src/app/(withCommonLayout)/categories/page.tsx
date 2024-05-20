@@ -1,5 +1,8 @@
 import Contain from "@/components/Shared/Container/Contain";
-import React from "react";
+
+export const metadata = {
+  title: "Categories",
+};
 
 const categoriesPage = () => {
   return (
