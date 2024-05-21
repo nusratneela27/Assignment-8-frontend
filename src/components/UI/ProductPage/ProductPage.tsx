@@ -40,10 +40,10 @@ const ProductPage = () => {
 
   return (
     <Contain>
-      <div className="my-16 space-y-3">
-        <div className="flex">
+      <div className="md:my-16 space-y-3">
+        <div className="relative min-h-screen  md:flex">
           <SideBar></SideBar>
-          <div className="flex-1 ml-36 space-y-3">
+          <div className="flex-1 md:ml-64 space-y-3">
             <h1 className="text-3xl font-bold">Our Collection Of Products</h1>
             <p className="font-bold">Showing {products.length} Item(s)</p>
             <p className="text-gray-500 mt-3 mb-7">
@@ -62,7 +62,7 @@ const ProductPage = () => {
               <div>
                 <Button
                   radius="full"
-                  className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg px-10"
+                  className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg px-10 my-10"
                 >
                   <Link href="women-wear">Load More</Link>
                 </Button>

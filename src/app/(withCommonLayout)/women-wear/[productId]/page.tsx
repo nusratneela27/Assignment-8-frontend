@@ -17,7 +17,7 @@ export const generateStaticParams = async () => {
 // SSR
 const ProductDetails = async ({ params }: ProductId) => {
   const res = await fetch(
-    `${process.env.VITE_API_URL}/women-wear/${params.productId}`,
+    `http://localhost:5000/women-wear/${params.productId}`,
     {
       cache: "no-store",
     }
