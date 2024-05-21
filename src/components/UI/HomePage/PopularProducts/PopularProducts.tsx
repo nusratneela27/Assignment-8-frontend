@@ -5,14 +5,11 @@ import { Products } from "@/types";
 import ProductCard from "../../Cards/ProductCard";
 
 const PopularProducts = async () => {
-  const res = await fetch(
-    "https://assignment-8-server-coral.vercel.app/women-wear",
-    {
-      next: {
-        revalidate: 30,
-      },
-    }
-  );
+  const res = await fetch("http://localhost:5000/women-wear", {
+    next: {
+      revalidate: 30,
+    },
+  });
   const products = await res.json();
 
   return (

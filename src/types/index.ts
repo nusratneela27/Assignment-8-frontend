@@ -1,3 +1,4 @@
+// All products
 export interface Products {
     _id: string;
     category: string,
