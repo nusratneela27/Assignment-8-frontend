@@ -10,11 +10,14 @@ export const metadata = {
 };
 
 const FlashSale = async () => {
-  const res = await fetch("http://localhost:5000/women-wear", {
-    next: {
-      revalidate: 2,
-    },
-  });
+  const res = await fetch(
+    "https://assignment-8-server-coral.vercel.app/women-wear",
+    {
+      next: {
+        revalidate: 30,
+      },
+    }
+  );
   const products = await res.json();
 
   const flashSaleProducts = products.filter(

@@ -5,24 +5,26 @@ export const metadata = {
   title: "Product details",
 };
 
+// SSG
 export const generateStaticParams = async () => {
-  const res = await fetch("http://localhost:5000/women-wear");
+  const res = await fetch(
+    "https://assignment-8-server-coral.vercel.app/women-wear"
+  );
   const products = await res.json();
-  return products.slice(0, 5).map((product: Products) => ({
+  return products.slice(0, 10).map((product: Products) => ({
     productId: product._id,
   }));
 };
 
+// SSR
 const ProductDetails = async ({ params }: ProductId) => {
-  // console.log(params);
   const res = await fetch(
-    `http://localhost:5000/women-wear/${params.productId}`,
+    `https://assignment-8-server-coral.vercel.app/women-wear/${params.productId}`,
     {
       cache: "no-store",
     }
   );
   const product = await res.json();
-  // console.log(product);
 
   return (
     <div>

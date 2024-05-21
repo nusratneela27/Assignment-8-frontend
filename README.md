@@ -1,8 +1,16 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Installation
 
-First, run the development server:
+1. Clone the repository:
+
+   ```bash
+   git clone <repository-url>
+   cd <project-folder>
+
+   ```
+
+2. run the development server:
 
 ```bash
 npm run dev
@@ -20,17 +28,65 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+# Women Wear Clothing Website summery
 
-To learn more about Next.js, take a look at the following resources:
+This project is a Women Wear Clothing website built using Next.js, aimed at showcasing and selling clothing items. It includes various features to enhance user experience and facilitate easy navigation through different sections of the website.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Landing Page / Home Page (”/”)
 
-## Deploy on Vercel
+- Showcases featured clothing items and promotions to capture user attention.
+- Includes a navigation bar for easy access to different sections of the website.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Flash Sale
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Implements ISR (Incremental Static Regeneration) with a 30s revalidation.
+- Displays top 4 flash sale clothing items, sorted based on product creation time.
+- Provides a "See All" button to direct users to the Flash Sale Products page.
+
+### Brands / Category
+
+- Shows 6 categories.
+- Clicking a brand or category navigates to an All Products Page with filtered data.
+
+### Trending Products
+
+- Implements ISR with a 30s revalidation.
+- Includes a "See All Products" button for exploring the complete product catalog.
+
+### Footer
+
+- Includes clickable links to essential pages such as Trending Products, Categories, About Us, Contact Us, and Customer Care.
+
+### Flash Sale Products Page (”/flash-sale”) [SSR]
+
+- Utilizes Server-Side Rendering (SSR).
+- Presents all flash sale clothing items with a countdown timer indicating time remaining for each offer.
+
+### All Products Page (Dynamic) [SSR]
+
+- The route name for All Products Page is dynamic based on the "/women-wear".
+- Implements filtering options based on category.
+
+### Single Product’s Detail Page (”/products/:productId”) [SSR + SSG]
+
+- Uses both Static Site Generation (SSG) and Server-Side Rendering (SSR).
+- Displays detailed product information including images, title, price, ratings, category, and description.
+- SSG for the first 10 products; SSR for the rest.
+
+### Dashboard (”/dashboard”)
+
+- Uses Next.UI Layout feature for the dashboard layout design.
+- Includes a Sidebar for All Products navigation route.
+
+### All Products in Dashboard (”/dashboard/all-products”) [SSR]
+
+- Provides a table view of all clothing items for easy management.
+
+## Technologies Used
+
+- **Next.js**: React framework for SSR, SSG, and routing.
+- **React**: JavaScript library for building user interfaces.
+- **Tailwind CSS and nextUI**: Utility-first CSS framework for styling.
+- **TypeScript**: Programming languages for frontend logic and data handling.
