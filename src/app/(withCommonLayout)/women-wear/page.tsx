@@ -1,4 +1,5 @@
 import ProductPage from "@/components/UI/ProductPage/ProductPage";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "Women Wear",
@@ -7,7 +8,9 @@ export const metadata = {
 const womenWear = () => {
   return (
     <div>
-      <ProductPage></ProductPage>
+      <Suspense>
+        <ProductPage></ProductPage>
+      </Suspense>
     </div>
   );
 };
