@@ -21,6 +21,11 @@ export interface MenuItem {
     href: string;
 }
 
+// countdown
+export interface FlashSaleCountdownProps {
+    endDate: Date;
+}
+
 // =========== for static image =============
 
 // import { StaticImageData } from "next/image";

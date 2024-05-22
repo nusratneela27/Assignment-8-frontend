@@ -1,3 +1,4 @@
+import FlashSaleCountdown from "@/components/Countdown/Countdown";
 import Contain from "@/components/Shared/Container/Contain";
 import ProductCard from "@/components/UI/Cards/ProductCard";
 import { Products } from "@/types";
@@ -21,10 +22,17 @@ const FlashSale = async () => {
     (product: Products) => product.flash_sale
   );
 
+  const flashSaleEndDate = new Date("2024-10-26T00:00:00");
+
   return (
     <Contain>
       <div className="my-16 space-y-3">
-        <h1 className="text-3xl font-bold">Flash Sale</h1>
+        <div className="flex justify-between">
+          <h1 className="text-3xl font-bold">Flash Sale</h1>
+          <div>
+            <FlashSaleCountdown endDate={flashSaleEndDate} />
+          </div>
+        </div>
         <p className="font-bold">
           Showing 1-24 of {flashSaleProducts.length} Item(s)
         </p>

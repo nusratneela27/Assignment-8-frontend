@@ -15,6 +15,8 @@ import img5 from "@/assets/Products/imgBottoms3.jpeg";
 import img6 from "@/assets/Products/imgCasual3.jpeg";
 import img7 from "@/assets/Products/imgOuter3.jpg";
 import img8 from "@/assets/Products/imgTops3.jpeg";
+import img9 from "@/assets/Products/imgCasual4.jpeg";
+import img10 from "@/assets/Products/imgGown4.jpeg";
 import Image from "next/image";
 
 const Slider = () => {
@@ -50,6 +52,14 @@ const Slider = () => {
     {
       title: "Boho Chic Dress",
       img: img8,
+    },
+    {
+      title: "Boho Chic Dress",
+      img: img9,
+    },
+    {
+      title: "Boho Chic Dress",
+      img: img10,
     },
   ];
 

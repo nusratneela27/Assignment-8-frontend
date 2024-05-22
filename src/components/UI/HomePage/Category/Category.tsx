@@ -51,7 +51,7 @@ const Category = async () => {
           and premium quality clothing.
         </p>
       </div>
-      <div className="gap-7 grid grid-cols-1 sm:grid-cols-3">
+      <div className="gap-7 grid grid-cols-2 sm:grid-cols-3 bg-slate-100 rounded-lg shadow-sm p-10 md:p-20 md:m-10">
         {displayedProducts.map((product: Products) => (
           <Card
             shadow="sm"
@@ -59,14 +59,13 @@ const Category = async () => {
             isFooterBlurred
             isPressable
             onPress={() => handleProductClick(product.category)}
-            className="w-[350px] h-[350px] object-cover"
           >
             <Image
               alt={product.title}
               src={product.image}
               height={350}
               width={350}
-              className="w-[350px] h-[350px] object-cover"
+              className="w-full h-[250px] object-cover"
             />
             <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
               <div>

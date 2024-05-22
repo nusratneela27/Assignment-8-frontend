@@ -32,9 +32,13 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 This project is a Women Wear Clothing website built using Next.js, aimed at showcasing and selling clothing items. It includes various features to enhance user experience and facilitate easy navigation through different sections of the website.
 
+### Live link
+
+- [women-wear](https://assignment-8-opal-zeta.vercel.app/)
+
 ## Features
 
-### Landing Page / Home Page (”/”)
+### Home Page (”/”)
 
 - Showcases featured clothing items and promotions to capture user attention.
 - Includes a navigation bar for easy access to different sections of the website.
@@ -45,7 +49,7 @@ This project is a Women Wear Clothing website built using Next.js, aimed at show
 - Displays top 4 flash sale clothing items, sorted based on product creation time.
 - Provides a "See All" button to direct users to the Flash Sale Products page.
 
-### Brands / Category
+### Category
 
 - Shows 6 categories.
 - Clicking a brand or category navigates to an All Products Page with filtered data.
@@ -59,17 +63,17 @@ This project is a Women Wear Clothing website built using Next.js, aimed at show
 
 - Includes clickable links to essential pages such as Trending Products, Categories, About Us, Contact Us, and Customer Care.
 
-### Flash Sale Products Page (”/flash-sale”) [SSR]
+### Flash Sale Page (”/flash-sale”) [SSR]
 
 - Utilizes Server-Side Rendering (SSR).
 - Presents all flash sale clothing items with a countdown timer indicating time remaining for each offer.
 
-### All Products Page (Dynamic) [SSR]
+### All Products Page [SSR]
 
 - The route name for All Products Page is dynamic based on the "/women-wear".
 - Implements filtering options based on category.
 
-### Single Product’s Detail Page (”/products/:productId”) [SSR + SSG]
+### Single Product’s Detail Page (”/women-wear/:women-wearId”) [SSR + SSG]
 
 - Uses both Static Site Generation (SSG) and Server-Side Rendering (SSR).
 - Displays detailed product information including images, title, price, ratings, category, and description.

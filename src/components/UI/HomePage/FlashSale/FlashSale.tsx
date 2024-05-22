@@ -3,6 +3,7 @@ import { Button } from "@nextui-org/react";
 import Link from "next/link";
 import { Products } from "@/types";
 import ProductCard from "../../Cards/ProductCard";
+import FlashSaleCountdown from "@/components/Countdown/Countdown";
 
 const FlashSale = async () => {
   const res = await fetch("http://localhost:5000/women-wear", {
@@ -16,6 +17,8 @@ const FlashSale = async () => {
     (product: Products) => product.flash_sale
   );
 
+  const flashSaleEndDate = new Date("2024-10-26T00:00:00");
+
   return (
     <div className="py-16 space-y-6">
       <div className="flex justify-between items-center">
@@ -26,6 +29,9 @@ const FlashSale = async () => {
         >
           <Link href="flash-sale">View All</Link>
         </Button>
+      </div>
+      <div className="my-4">
+        <FlashSaleCountdown endDate={flashSaleEndDate} />
       </div>
       <div className="gap-8 grid grid-cols-2 sm:grid-cols-4">
         {flashSaleProducts.slice(0, 4).map((product: Products) => (
