@@ -1,3 +1,5 @@
+import LoginUI from "@/components/UI/LoginUI/LoginUI";
+
 export const metadata = {
   title: "Login",
 };
@@ -5,7 +7,7 @@ export const metadata = {
 const Login = () => {
   return (
     <div>
-      <h1>Login page</h1>
+      <LoginUI></LoginUI>
     </div>
   );
 };

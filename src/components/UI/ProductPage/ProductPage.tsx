@@ -20,7 +20,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("http://localhost:5000/women-wear", {
+      const res = await fetch("http://localhost:3000/women-wear", {
         next: {
           revalidate: 30,
         },

@@ -6,7 +6,7 @@ import ProductCard from "../../Cards/ProductCard";
 import FlashSaleCountdown from "@/components/Countdown/Countdown";
 
 const FlashSale = async () => {
-  const res = await fetch("http://localhost:5000/women-wear", {
+  const res = await fetch("http://localhost:3000/women-wear", {
     next: {
       revalidate: 30,
     },

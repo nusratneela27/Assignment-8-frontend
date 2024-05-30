@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 const Category = async () => {
   const router = useRouter();
 
-  const res = await fetch("http://localhost:5000/women-wear", {
+  const res = await fetch("http://localhost:3000/women-wear", {
     next: {
       revalidate: 30,
     },

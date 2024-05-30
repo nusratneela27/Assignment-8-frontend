@@ -22,9 +22,7 @@ const page = () => {
         <Category></Category>
       </Contain>
       <VideoBanner></VideoBanner>
-      <Contain>
-        <PopularProducts></PopularProducts>
-      </Contain>
+      <PopularProducts></PopularProducts>
     </>
   );
 };
