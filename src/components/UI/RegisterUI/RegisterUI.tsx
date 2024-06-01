@@ -2,9 +2,8 @@ import Image from "next/image";
 import loginBanner from "@/assets/login.jpg";
 import { Button, Input } from "@nextui-org/react";
 import Link from "next/link";
-import { FaChevronLeft } from "react-icons/fa";
 
-const LoginUI = () => {
+const RegisterUI = () => {
   return (
     <>
       <div style={{ position: "relative", height: "910px" }}>
@@ -20,9 +19,12 @@ const LoginUI = () => {
         />
         <div className="absolute inset-0 z-10  flex items-center justify-center text-center bg-black bg-opacity-30">
           <div className="w-1/2 rounded-2xl p-10 bg-white bg-opacity-50 ">
-            <h1 className="text-4xl  font-medium mb-4 text-amber-900">Login</h1>
-            <p className="text-xl font-normal italic mb-4">Welcome Back</p>
+            <h1 className="text-4xl font-medium mb-4 text-amber-900">
+              Register
+            </h1>
+
             <form className="space-y-5 md:px-20">
+              <Input variant="underlined" type="text" label="Name" />
               <Input variant="underlined" type="email" label="Email" />
               <Input variant="underlined" type="password" label="Password" />
               <Button
@@ -42,10 +44,10 @@ const LoginUI = () => {
                 </Link>
               </p>
               <p>
-                Don't have account?{" "}
-                <Link href="/register">
+                Have An Account?{" "}
+                <Link href="/login">
                   <span className="text-amber-900 font-semibold hover:underline">
-                    Register
+                    Login
                   </span>
                 </Link>
               </p>
@@ -57,4 +59,4 @@ const LoginUI = () => {
   );
 };
 
-export default LoginUI;
+export default RegisterUI;

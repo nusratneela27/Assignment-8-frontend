@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import bannerImage from "@/assets/banner.jpg";
 import Slider from "./Slider";

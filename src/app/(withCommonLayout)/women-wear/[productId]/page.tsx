@@ -7,7 +7,7 @@ export const metadata = {
 
 // SSG
 export const generateStaticParams = async () => {
-  const res = await fetch("http://localhost:3000/women-wear");
+  const res = await fetch("http://localhost:5000/women-wear");
   const products = await res.json();
   return products.slice(0, 10).map((product: Products) => ({
     productId: product._id,
@@ -17,7 +17,7 @@ export const generateStaticParams = async () => {
 // SSR
 const ProductDetails = async ({ params }: ProductId) => {
   const res = await fetch(
-    `http://localhost:3000/women-wear/${params.productId}`,
+    `http://localhost:5000/women-wear/${params.productId}`,
     {
       cache: "no-store",
     }

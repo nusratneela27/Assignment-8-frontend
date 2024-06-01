@@ -1,3 +1,5 @@
+import RegisterUI from "@/components/UI/RegisterUI/RegisterUI";
+
 export const metadata = {
   title: "Register",
 };
@@ -5,7 +7,7 @@ export const metadata = {
 const page = () => {
   return (
     <div>
-      <h1>Register</h1>
+      <RegisterUI></RegisterUI>
     </div>
   );
 };
