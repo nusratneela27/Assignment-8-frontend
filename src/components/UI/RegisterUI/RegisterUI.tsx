@@ -4,14 +4,15 @@ import Image from "next/image";
 import loginBanner from "@/assets/login.jpg";
 import { Button, Input } from "@nextui-org/react";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { UserData } from "@/types";
+import { FcGoogle } from "react-icons/fc";
+import { signIn } from "next-auth/react";
 
 const RegisterUI = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<UserData>();
 
-  const onSubmit = (data: any) => {
-    // console.log(data);
-  };
+  const onSubmit: SubmitHandler<UserData> = async (data) => {};
 
   return (
     <>
@@ -56,6 +57,17 @@ const RegisterUI = () => {
                 Submit
               </Button>
             </form>
+            <div
+              onClick={() =>
+                signIn("google", {
+                  callbackUrl: "http://localhost:3000/dashboard",
+                })
+              }
+              className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 hover:bg-slate-50 rounded-3xl cursor-pointer w-11/12"
+            >
+              <FcGoogle size={32} />
+              <p>Continue with Google</p>
+            </div>
             <div className="flex flex-col md:flex-row justify-around pt-9">
               <p>
                 Back To{" "}

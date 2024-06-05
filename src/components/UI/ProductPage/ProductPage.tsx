@@ -20,11 +20,20 @@ const ProductPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("http://localhost:5000/women-wear", {
-        next: {
-          revalidate: 30,
-        },
-      });
+      // const res = await fetch("http://localhost:5000/women-wear", {
+      //   next: {
+      //     revalidate: 30,
+      //   },
+      // });
+
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/women-wear`,
+        {
+          next: {
+            revalidate: 30,
+          },
+        }
+      );
       const products = await res.json();
       if (category) {
         const filtered = products.filter(

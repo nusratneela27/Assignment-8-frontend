@@ -9,12 +9,22 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   Button,
+  Tooltip,
 } from "@nextui-org/react";
 import Logo from "./Logo";
 import Link from "next/link";
 import { MenuItem } from "@/types";
+import { signOut } from "next-auth/react";
 
-const Header = () => {
+type UserProps = {
+  user?: {
+    name?: string | null | undefined;
+    email?: string | null | undefined;
+    image?: string | null | undefined;
+  };
+};
+
+const Header = ({ session }: { session: UserProps | null }) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [activeItem, setActiveItem] = useState<string>("Home");
 
@@ -65,15 +75,37 @@ const Header = () => {
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <NavbarItem>
-          <Button
-            as={Link}
-            href="/login"
-            className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-          >
-            Login
-          </Button>
-        </NavbarItem>
+        {session?.user ? (
+          <>
+            <NavbarItem>
+              <Tooltip content={session?.user?.email}>
+                <img
+                  src={session?.user?.image ?? undefined}
+                  alt="User Photo"
+                  className="rounded-full w-8 h-8"
+                />
+              </Tooltip>
+            </NavbarItem>
+            <NavbarItem>
+              <Button
+                onClick={() => signOut({ callbackUrl: "/" })}
+                className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+              >
+                Logout
+              </Button>
+            </NavbarItem>
+          </>
+        ) : (
+          <NavbarItem>
+            <Button
+              as={Link}
+              href="/login"
+              className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+            >
+              Login
+            </Button>
+          </NavbarItem>
+        )}
       </NavbarContent>
 
       <NavbarMenu>

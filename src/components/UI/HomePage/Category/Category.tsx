@@ -10,11 +10,20 @@ import { useRouter } from "next/navigation";
 const Category = async () => {
   const router = useRouter();
 
-  const res = await fetch("http://localhost:5000/women-wear", {
-    next: {
-      revalidate: 30,
-    },
-  });
+  // const res = await fetch("http://localhost:5000/women-wear", {
+  //   next: {
+  //     revalidate: 30,
+  //   },
+  // });
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/women-wear`,
+    {
+      next: {
+        revalidate: 30,
+      },
+    }
+  );
   const products: Products[] = await res.json();
 
   const allowedCategories = [

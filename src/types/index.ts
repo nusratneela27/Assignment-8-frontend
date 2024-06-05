@@ -1,3 +1,10 @@
+// User Data
+export interface UserData {
+    name: string;
+    email: string;
+    password: string;
+}
+
 // All products
 export interface Products {
     _id: string;
@@ -9,12 +16,14 @@ export interface Products {
     flash_sale: string;
     ratings: number;
 }
+
 // params
 export interface ProductId {
     params: {
         productId: string;
     };
 }
+
 // Header
 export interface MenuItem {
     label: string;
