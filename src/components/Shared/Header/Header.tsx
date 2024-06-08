@@ -33,7 +33,7 @@ const Header = ({ session }: { session: UserProps | null }) => {
     { label: "Categories", href: "/categories" },
     { label: "Women Products", href: "/women-wear" },
     { label: "Flash Sale", href: "/flash-sale" },
-    { label: "Dashboard", href: "/dashboard" },
+    ...(session?.user ? [{ label: "Dashboard", href: "/dashboard" }] : []),
   ];
 
   const handleMenuItemClick = (label: string) => {

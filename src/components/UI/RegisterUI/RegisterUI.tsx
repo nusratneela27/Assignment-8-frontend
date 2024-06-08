@@ -4,15 +4,34 @@ import Image from "next/image";
 import loginBanner from "@/assets/login.jpg";
 import { Button, Input } from "@nextui-org/react";
 import Link from "next/link";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { UserData } from "@/types";
 import { FcGoogle } from "react-icons/fc";
 import { signIn } from "next-auth/react";
+import { registerUser } from "@/utils/actions/registerUser";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const RegisterUI = () => {
   const { register, handleSubmit } = useForm<UserData>();
 
-  const onSubmit: SubmitHandler<UserData> = async (data) => {};
+  const router = useRouter();
+
+  const onSubmit = async (data: UserData) => {
+    // console.log(data);
+
+    try {
+      const res = await registerUser(data);
+      if (res.success) {
+        toast.success(res.message);
+        router.push("/login");
+      }
+      // console.log(res);
+    } catch (err: any) {
+      console.log(err.message);
+      throw new Error(err.message);
+    }
+  };
 
   return (
     <>
@@ -61,6 +80,7 @@ const RegisterUI = () => {
               onClick={() =>
                 signIn("google", {
                   callbackUrl: "http://localhost:3000/dashboard",
+                  // callbackUrl: `${process.env.NEXT_CALLBACK_URL}/dashboard`,
                 })
               }
               className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 hover:bg-slate-50 rounded-3xl cursor-pointer w-11/12"

@@ -7,7 +7,9 @@ export const metadata = {
 
 // SSG
 export const generateStaticParams = async () => {
-  // const res = await fetch("http://localhost:5000/women-wear");
+  // const res = await fetch(
+  //   "https://assignment-8-server-coral.vercel.app/women-wear"
+  // );
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/women-wear`
   );
@@ -21,7 +23,7 @@ export const generateStaticParams = async () => {
 // SSR
 const ProductDetails = async ({ params }: ProductId) => {
   // const res = await fetch(
-  //   `http://localhost:5000/women-wear/${params.productId}`,
+  //   `https://assignment-8-server-coral.vercel.app/women-wear/${params.productId}`,
   //   {
   //     cache: "no-store",
   //   }

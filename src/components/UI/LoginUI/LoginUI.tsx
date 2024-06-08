@@ -54,6 +54,7 @@ const LoginUI = () => {
             onClick={() =>
               signIn("google", {
                 callbackUrl: "http://localhost:3000/dashboard",
+                // callbackUrl: `${process.env.NEXT_CALLBACK_URL}/dashboard`,
               })
             }
             className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 hover:bg-slate-50 rounded-3xl cursor-pointer w-11/12"
