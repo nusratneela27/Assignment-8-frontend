@@ -8,9 +8,9 @@ import { useForm } from "react-hook-form";
 import { UserData } from "@/types";
 import { FcGoogle } from "react-icons/fc";
 import { signIn } from "next-auth/react";
-import { registerUser } from "@/utils/actions/registerUser";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { registerUser } from "@/services/actions/registerUser";
 
 const RegisterUI = () => {
   const { register, handleSubmit } = useForm<UserData>();
@@ -80,6 +80,7 @@ const RegisterUI = () => {
               onClick={() =>
                 signIn("google", {
                   callbackUrl: "http://localhost:3000/dashboard",
+                  // callbackUrl: "https://assignment-8-opal-zeta.vercel.app/dashboard",
                   // callbackUrl: `${process.env.NEXT_CALLBACK_URL}/dashboard`,
                 })
               }

@@ -15,6 +15,8 @@ import Logo from "./Logo";
 import Link from "next/link";
 import { MenuItem } from "@/types";
 import { signOut } from "next-auth/react";
+import { getUserInfo, isLogin, removeUser } from "@/services/auth.services";
+import { useRouter } from "next/navigation";
 
 type UserProps = {
   user?: {
@@ -27,6 +29,15 @@ type UserProps = {
 const Header = ({ session }: { session: UserProps | null }) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [activeItem, setActiveItem] = useState<string>("Home");
+
+  const userInfo = getUserInfo();
+  const router = useRouter();
+  // console.log(isLogin());
+
+  const handleLogout = () => {
+    removeUser();
+    router.refresh();
+  };
 
   const menuItems: MenuItem[] = [
     { label: "Home", href: "/" },
@@ -75,6 +86,29 @@ const Header = ({ session }: { session: UserProps | null }) => {
       </NavbarContent>
 
       <NavbarContent justify="end">
+        {userInfo ? (
+          <NavbarItem>
+            <Button
+              onClick={handleLogout}
+              className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+            >
+              Logout
+            </Button>
+          </NavbarItem>
+        ) : (
+          <NavbarItem>
+            <Button
+              as={Link}
+              href="/login"
+              className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+            >
+              Login
+            </Button>
+          </NavbarItem>
+        )}
+      </NavbarContent>
+
+      {/* <NavbarContent justify="end">
         {session?.user ? (
           <>
             <NavbarItem>
@@ -106,7 +140,7 @@ const Header = ({ session }: { session: UserProps | null }) => {
             </Button>
           </NavbarItem>
         )}
-      </NavbarContent>
+      </NavbarContent> */}
 
       <NavbarMenu>
         {menuItems.map((item, index) => (

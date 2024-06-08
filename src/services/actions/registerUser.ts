@@ -2,7 +2,6 @@
 
 import { UserData } from "@/types";
 
-
 export const registerUser = async (data: UserData) => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}/register`, {
         method: "POST",

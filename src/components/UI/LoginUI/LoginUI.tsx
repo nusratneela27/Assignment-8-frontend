@@ -10,7 +10,8 @@ import { FcGoogle } from "react-icons/fc";
 import { signIn } from "next-auth/react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { loginUser } from "@/utils/actions/loginUser";
+import { loginUser } from "@/services/actions/loginUser";
+import { storeUserInfo } from "@/services/auth.services";
 
 const LoginUI = () => {
   const { register, handleSubmit } = useForm<UserData>();
@@ -25,10 +26,11 @@ const LoginUI = () => {
       // console.log(res);
       if (res.accessToken) {
         toast.success(res.message);
-        localStorage.setItem("accessToken", res.accessToken);
+        storeUserInfo({ accessToken: res.accessToken });
+        // localStorage.setItem("accessToken", res.accessToken);
         router.push("/");
       }
-      // console.log(res);
+      console.log(res);
     } catch (err: any) {
       console.log(err.message);
       throw new Error(err.message);
@@ -73,6 +75,7 @@ const LoginUI = () => {
             onClick={() =>
               signIn("google", {
                 callbackUrl: "http://localhost:3000/dashboard",
+                // callbackUrl: "https://assignment-8-opal-zeta.vercel.app/dashboard",
                 // callbackUrl: `${process.env.NEXT_CALLBACK_URL}/dashboard`,
               })
             }
