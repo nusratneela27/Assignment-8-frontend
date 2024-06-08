@@ -4,16 +4,35 @@ import Image from "next/image";
 import loginBanner from "@/assets/login.jpg";
 import { Button, Input } from "@nextui-org/react";
 import Link from "next/link";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { UserData } from "@/types";
 import { FcGoogle } from "react-icons/fc";
 import { signIn } from "next-auth/react";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import { loginUser } from "@/utils/actions/loginUser";
 
 const LoginUI = () => {
   const { register, handleSubmit } = useForm<UserData>();
 
-  const onSubmit: SubmitHandler<UserData> = (data) => {
-    console.log(data);
+  const router = useRouter();
+
+  const onSubmit = async (data: UserData) => {
+    // console.log(data);
+
+    try {
+      const res = await loginUser(data);
+      // console.log(res);
+      if (res.accessToken) {
+        toast.success(res.message);
+        localStorage.setItem("accessToken", res.accessToken);
+        router.push("/");
+      }
+      // console.log(res);
+    } catch (err: any) {
+      console.log(err.message);
+      throw new Error(err.message);
+    }
   };
 
   return (
